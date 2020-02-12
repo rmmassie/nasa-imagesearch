@@ -1,0 +1,77 @@
+#logo {
+    position: absolute;
+    top: 5vh;
+    left: 5vw;
+    display: flex;
+}
+
+#logo-image img{
+    height: 12vh;}
+
+#logo-title h2 {
+    color: white;
+}
+
+
+#top {
+    position: relative;
+    
+    width: 100vw;
+    height: 100vh;
+    left: 0;
+    top: 0;
+    background-image: url(./assets/mystic-mountain.jpg);
+    background-size: cov;
+}
+
+
+
+#middle {
+    position: relative;
+    width: 99vw;
+    height: 30vh;
+    left: 0;
+    top: 0;
+    background-color: chartreuse;
+}
+
+#searchBox {
+    position: absolute;
+  top: 50%; right: 50%;
+  transform: translate(50%,-50%);
+  width: 65vw;
+
+}
+#barContainer {
+    background-color: aqua;
+}
+
+#searchResults {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    width: 99vw;
+    left: 0;
+    top: 0;
+    background-color: rgb(0, 0, 0);
+}
+
+.card {
+    width: 15vw;
+    background-color: black;
+}
+
+.card:hover {
+    transform: scale(1.2);
+    background-color: rgba(0, 0, 0, 0);
+    z-index: 10; }
+
+/* #footer {
+    position: relative;
+    width: 99vw;
+    height: 65vh;
+    left: 0;
+    top: 0;
+    background-color: rgb(255, 0, 221);
+} */
