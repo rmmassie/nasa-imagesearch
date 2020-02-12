@@ -7,11 +7,19 @@ let searchForm = document.getElementById('searchForm')
 
 searchInput.addEventListener('keyup',function (event) {
     if (event.keyCode == 13) {
-       let searchTerm = document.getElementById('search-bar').value
-       url = baseURL + '?q=' + searchTerm
-       fetch(url)
-       .then(function(result){return result.json()})
-       .then(function(json){getResults(json)})   
+        let searchTerm = document.getElementById('search-bar').value
+        url = baseURL + '?q=' + searchTerm
+        fetch(url)
+        .then(function(result){return result.json()})
+        .then(function(json){getResults(json)})
+        .then(function() {
+            let imageResults = document.getElementById("searchResults")
+            var rect = imageResults.getBoundingClientRect();
+            console.log(rect.y*2)
+            window.scrollTo(0, rect.y*2);
+            })
+        
+        
     }
     })
 
@@ -29,6 +37,9 @@ function getResults(data) {
                     //build out the data container (Bootstrap Cards)
                     let thumbURL = element.links[0].href;
                     let caption = element.data[0].description;
+                    let modalTitle = document.getElementById('detailModalLabel')
+                    modalTitle.textContent = caption
+                    console.log(caption)
                     let location = element.href;
                     
                  
@@ -47,10 +58,7 @@ function getResults(data) {
                     parent.appendChild(container);
                     container.setAttribute('data-toggle', 'modal')
                     container.setAttribute('data-target', '#detailModal')
-                                                       
-                    let modalTitle = document.getElementById('detailModalLabel')
-                    // modalTitle.textContent = 
-                    
+               
                 }
             
             }
@@ -61,5 +69,5 @@ function getResults(data) {
     }
 }
 
-//Function to run on click of a card: Bring in the card, a caption, and the location of high-res images.
-// function modalCall()
+
+
