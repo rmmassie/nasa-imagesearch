@@ -1,4 +1,4 @@
-let baseURL = 'http://images-api.nasa.gov/search';
+let baseURL = 'https://images-api.nasa.gov/search';
 let url;
 
 
@@ -14,19 +14,21 @@ searchInput.addEventListener('keyup',function (event) {
         .then(function(json){getResults(json)})
         .then(function() {
             let imageResults = document.getElementById("searchResults")
+            let body = document.querySelector('body')
             var rect = imageResults.getBoundingClientRect();
-            console.log(rect.y*2)
-            window.scrollTo(0, rect.y*2);
+            console.log(rect.y)
+            window.scrollBy({ 
+                top: rect.y,
+                left: 0, 
+                behavior: 'smooth' 
+                })
             })
-        
-        
-    }
+        }
     })
 
 function getResults(data) {
     let results = data.collection.items
     console.log(results)
-    
     for (const item in results) {
         if (results.hasOwnProperty(item)) {
             const element = results[item];
@@ -41,9 +43,7 @@ function getResults(data) {
                     modalTitle.textContent = caption
                     console.log(caption)
                     let location = element.href;
-                    
-                 
-                    
+                                     
                     let parent = document.getElementById('searchResults');
                     let container = document.createElement('div')
                     let cardImage = document.createElement('img')
@@ -58,7 +58,6 @@ function getResults(data) {
                     parent.appendChild(container);
                     container.setAttribute('data-toggle', 'modal')
                     container.setAttribute('data-target', '#detailModal')
-               
                 }
             
             }

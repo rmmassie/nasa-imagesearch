@@ -1,3 +1,7 @@
+body {
+    height: 400vw;
+}
+
 #logo {
     position: absolute;
     top: 5vh;
