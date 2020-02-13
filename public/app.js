@@ -154,9 +154,6 @@ function buildModal(image, desc, modalEle) {
     modalEle.setAttribute('data-toggle', 'modal')
     modalEle.setAttribute('data-target', '#detailModal')
 
-   
-
-
-
+    
 }
 
